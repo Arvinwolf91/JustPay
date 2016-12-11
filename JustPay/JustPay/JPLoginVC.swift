@@ -26,7 +26,6 @@ class JPLoginVC: UIViewController {
 
     @IBAction func loginAction(_ sender: Any) {
         
-//        if (emailId.text?.characters.count == 0 || password.text?.characters.count == 0) {  // for help
         if ((emailId.text?.isEmpty)! || (password.text?.isEmpty)!) {
 
             let alertMsg : String = "INVALID CREDENTIALS"

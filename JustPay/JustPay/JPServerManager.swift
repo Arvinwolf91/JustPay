@@ -25,7 +25,7 @@ class JPServerManager: NSObject {
 // JUSTPAY : USER REGISTRATION
 //====================================================================================================================================
     
-    func userRegistration(user:JPUser) -> Void {
+    public func userRegistration(user:JPUser) -> Void {
         
         let urlString : String = String(format:"%@%@", baseURL, registrationURL)
         let request : NSMutableURLRequest = JPRequestManager.postServerRequest(urlString: urlString, paramString: "")
@@ -34,14 +34,13 @@ class JPServerManager: NSObject {
             // TODO
             let jsonDict : NSDictionary = json as! NSDictionary
         })
-        
     }
     
 //====================================================================================================================================
 // JUSTPAY : USER LOGIN
 //====================================================================================================================================
 
-    func userlogin(jpUser:JPUser, completion : @escaping (_ json:Any, _ error:NSError?) -> Void) -> Void {
+    public func userlogin(jpUser:JPUser, completion : @escaping (_ json:Any, _ error:NSError?) -> Void) -> Void {
         
         let urlString : String = String(format:"%@%@", baseURL, loginURL)
         let request : NSMutableURLRequest = JPRequestManager.postServerRequest(urlString: urlString, paramString: "")
@@ -57,7 +56,7 @@ class JPServerManager: NSObject {
 // JUSTPAY : USER LOGOUT
 //====================================================================================================================================
     
-    func userlogout() -> Void {
+    public func userlogout() -> Void {
         
         // LOGOUT FORM SERVER
         let urlString : String = String(format:"%@%@", baseURL, logoutURL)
