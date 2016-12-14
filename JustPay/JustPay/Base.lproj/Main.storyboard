@@ -66,7 +66,7 @@
         <!--Sender-->
         <scene sceneID="SYp-qB-HiW">
             <objects>
-                <viewController storyboardIdentifier="senderVC" title="Sender" id="0Up-cP-zef" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="senderVC" title="Sender" id="0Up-cP-zef" customClass="JPSenderVC" customModule="JustPay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tra-N4-ebv"/>
                         <viewControllerLayoutGuide type="bottom" id="lAZ-c3-zXg"/>
@@ -88,6 +88,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="1" green="0.99805031017259038" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendButtonAction:" destination="0Up-cP-zef" eventType="touchDown" id="aEF-qi-XQm"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="po4-em-mkq">
                                 <rect key="frame" x="16" y="217" width="343" height="30"/>
@@ -109,6 +112,9 @@
                             <constraint firstItem="4tX-iW-ROO" firstAttribute="top" secondItem="Tra-N4-ebv" secondAttribute="bottom" constant="39" id="lOa-Fr-VM9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountField" destination="po4-em-mkq" id="z4K-9w-a2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAa-Kr-iNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

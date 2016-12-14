@@ -20,26 +20,30 @@ class JPResponseManager: NSObject {
      
         let task : URLSessionDataTask = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             
-            let httpResponse = response as! HTTPURLResponse
-            print("HTTP RESPONSE \(httpResponse.description) && CODE :: \(httpResponse.statusCode)")
-            print("ERROR RESPONSE (IF-ANY) :: \(error?.localizedDescription)")
+        let httpResponse = response as! HTTPURLResponse
+        print("HTTP RESPONSE \(httpResponse.description) && CODE :: \(httpResponse.statusCode)")
+        print("ERROR RESPONSE (IF-ANY) :: \(error?.localizedDescription)")
+        
+//        let resultNSString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
+//        print("ERROR RESPONSE DATA (IF-ANY) :: \(resultNSString)")
             
-            var jsonResponse: Any? = nil
-            
-            if httpResponse.statusCode == RESPONSE_CODE.SUCCESS.rawValue {  // 200
-            
-                do {
-                     jsonResponse = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as! [String:AnyObject]
-                } catch let err as NSError {
-                    print("RESPONSE_EXCEPTION :: \(err.localizedDescription)")
-                }
-                
-            }
-            else {
-                // HANDLE ERROR HERE i.e. 400
-            }
-            completion(jsonResponse as Any, error as NSError?)
+        var jsonResponse: Any? = nil   // pre
+
+        do {
+            jsonResponse = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
         }
-        task.resume()
+        catch let err as NSError
+        {
+            print("RESPONSE_EXCEPTION :: \(err.localizedDescription)")
+        }
+        if httpResponse.statusCode == RESPONSE_CODE.SUCCESS.rawValue {
+            
+            
+        }
+        completion(jsonResponse as Any, error as NSError?)
+        print("ERROR RESPONSE DATA (IF-ANY) :: \(jsonResponse)")
     }
+         task.resume()
+}
+    
 }

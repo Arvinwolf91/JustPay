@@ -15,6 +15,9 @@ var EMAIL : String = "com.justpay.email"
 var FIRSTNAME : String = "com.justpay.firstname"
 var LASTNAME : String = "com.justpay.lastname"
 var PHONENO : String = "com.justpay.phoneno"
+var TOKEN : String = "com.justpay.token"
+var DEVICE_ID : String = "com.justpay.deviceId"
+var DEVICE_SECRET : String = "com.justpay.deviceSecret"
 
 class JPUserDefaults: NSObject {
 
@@ -75,5 +78,32 @@ class JPUserDefaults: NSObject {
     
     class func getEmail() -> String {
         return UserDefaults.standard.value(forKey: EMAIL) as! String
+    }
+    
+    class func setToken(token:String) -> Void {
+        UserDefaults.standard.set(token, forKey: TOKEN)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getToken() -> String {
+        return UserDefaults.standard.value(forKey: TOKEN) as! String
+    }
+    
+    class func setDeviceId(deviceId:NSNumber) -> Void {  // int
+        UserDefaults.standard.set(deviceId, forKey: DEVICE_ID)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getDeviceId() -> NSNumber {
+        return UserDefaults.standard.value(forKey: DEVICE_ID) as! NSNumber 
+    }
+    
+    class func setDeviceSecret(deviceSecret:String) -> Void {   // SAVE IN KEY STORE NOT HERE
+        UserDefaults.standard.set(deviceSecret, forKey: DEVICE_SECRET)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func getDeviceSecret() -> String {
+        return UserDefaults.standard.value(forKey: DEVICE_SECRET) as! String
     }
 }

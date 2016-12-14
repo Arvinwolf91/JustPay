@@ -43,15 +43,31 @@ class JPLoginVC: UIViewController {
         JPUserDefaults.setPassword(password: password.text!)
         
         let serverManager = JPServerManager()
-        serverManager.userlogin(jpUser: jpUser , completion: { (json, error) in
+        serverManager.userlogin(jpUser: jpUser, completion: { (json, error) in
         
-            if (error != nil) {
+            if (error == nil) {
                 
                 let storyBoard : UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let senderVC : UIViewController = storyBoard.instantiateViewController(withIdentifier: "senderVC")
-                self.present(senderVC, animated: true, completion: nil)
+                OperationQueue.main.addOperation {
+                    self.present(senderVC, animated: true, completion: nil)
+                }
+                
             }
         })
+        
+//        serverManager.userRegistration(user: jpUser, completion: { (json, error) in
+//            
+//            if (error == nil) {
+//                
+//                let storyBoard : UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+//                let senderVC : UIViewController = storyBoard.instantiateViewController(withIdentifier: "senderVC")
+//        OperationQueue.main.addOperation {
+//            self.present(senderVC, animated: true, completion: nil)
+//        }
+//            }
+//        })
+        
     }
     
 }

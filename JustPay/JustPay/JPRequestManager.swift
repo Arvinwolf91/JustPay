@@ -14,16 +14,21 @@ class JPRequestManager: NSObject {
 // UNIVERSAL POST REQUEST METHOD
 //====================================================================================================================================
     
-    class func postServerRequest(urlString:String, paramString:String?) -> NSMutableURLRequest {
+    class func postServerRequest(urlString:String, paramString:String?, body:Data) -> NSMutableURLRequest {
         
         var URLString : String = urlString
-        if paramString != nil {
+        if (paramString != nil || !(paramString?.isEmpty)!) {
             URLString = String(format:"%@?%@", urlString, paramString!)
         }
         let requestURL = URL(string:URLString)!
         let request = NSMutableURLRequest(url:requestURL)
         request.httpMethod = "POST"
         request.timeoutInterval = 1000
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        self.addHeadersParameters(request: request)
+        
         return request
     }
     
@@ -41,6 +46,7 @@ class JPRequestManager: NSObject {
         let request = NSMutableURLRequest(url:requestURL)
         request.httpMethod = "GET"
         request.timeoutInterval = 1000
+        
         return request
     }
     
@@ -48,8 +54,17 @@ class JPRequestManager: NSObject {
 // UNIVERSAL ADD HEADERS METHOD
 //====================================================================================================================================
     
-    func addHeadersParameters() -> Void {
-        // IF REQUIRED
+    class func addHeadersParameters(request:NSMutableURLRequest) -> Void {
+      
+            let authString : String = String(format:"Bearer %@", JPUserDefaults.getToken())
+            if (!authString.isEmpty) {
+                request.addValue(authString, forHTTPHeaderField: "Authorization")
+            }
+            let deviceId : String = String(format: "%@", JPUserDefaults.getDeviceId())
+            if (!deviceId.isEmpty) {
+            request.addValue(deviceId, forHTTPHeaderField: "DeviceId")
+            request.addValue(JPUserDefaults.getUserName(), forHTTPHeaderField: "UserName")
+        }
     }
     
 }
