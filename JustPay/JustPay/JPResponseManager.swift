@@ -42,8 +42,8 @@ class JPResponseManager: NSObject {
         }
         completion(jsonResponse as Any, error as NSError?)
         print("ERROR RESPONSE DATA (IF-ANY) :: \(jsonResponse)")
-    }
-         task.resume()
+        }
+        task.resume()
 }
     
 }

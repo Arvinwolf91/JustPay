@@ -22,6 +22,7 @@
 		463444791DE2ABC700366C04 /* JustPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463444781DE2ABC700366C04 /* JustPayUITests.swift */; };
 		46524FE41DFBC6970012889A /* JPUserTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46524FE31DFBC6970012889A /* JPUserTransaction.swift */; };
 		46524FE81DFBC7000012889A /* JPDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46524FE71DFBC7000012889A /* JPDBManager.swift */; };
+		46653B461E01AA8300A5838A /* JPSHA256HMAC.m in Sources */ = {isa = PBXBuildFile; fileRef = 46653B451E01AA8300A5838A /* JPSHA256HMAC.m */; };
 		46C501351E009741004D42F3 /* JPSenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C501341E009741004D42F3 /* JPSenderVC.swift */; };
 		46DF116D1DF6B6A80062366A /* JPUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DF116C1DF6B6A80062366A /* JPUserDefaults.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,9 @@
 		4634447A1DE2ABC700366C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46524FE31DFBC6970012889A /* JPUserTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPUserTransaction.swift; sourceTree = "<group>"; };
 		46524FE71DFBC7000012889A /* JPDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPDBManager.swift; sourceTree = "<group>"; };
+		46653B431E01AA8300A5838A /* JustPay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JustPay-Bridging-Header.h"; sourceTree = "<group>"; };
+		46653B441E01AA8300A5838A /* JPSHA256HMAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSHA256HMAC.h; sourceTree = "<group>"; };
+		46653B451E01AA8300A5838A /* JPSHA256HMAC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSHA256HMAC.m; sourceTree = "<group>"; };
 		46C501341E009741004D42F3 /* JPSenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPSenderVC.swift; sourceTree = "<group>"; };
 		46DF116C1DF6B6A80062366A /* JPUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JPUserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				46DF116C1DF6B6A80062366A /* JPUserDefaults.swift */,
+				46653B441E01AA8300A5838A /* JPSHA256HMAC.h */,
+				46653B451E01AA8300A5838A /* JPSHA256HMAC.m */,
+				46653B431E01AA8300A5838A /* JustPay-Bridging-Header.h */,
 			);
 			name = JPPreferences;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 				TargetAttributes = {
 					463444511DE2ABC600366C04 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Manual;
 					};
 					463444681DE2ABC700366C04 = {
@@ -329,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46653B461E01AA8300A5838A /* JPSHA256HMAC.m in Sources */,
 				46DF116D1DF6B6A80062366A /* JPUserDefaults.swift in Sources */,
 				461D9D8C1DF5B5CF007F721A /* JPUser.swift in Sources */,
 				461D9D871DF5ACE2007F721A /* JPResponseManager.swift in Sources */,
@@ -492,11 +501,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JustPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.InHeap.framework.JustPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JustPay/JustPay-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -505,11 +517,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JustPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.InHeap.framework.JustPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JustPay/JustPay-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
