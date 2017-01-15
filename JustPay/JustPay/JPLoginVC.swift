@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class JPLoginVC: UIViewController {
 
     override func viewDidLoad() {
@@ -67,6 +68,10 @@ class JPLoginVC: UIViewController {
 //        }
 //            }
 //        })
+        
+//        let SHA256Object = JPSHA256HMAC()
+//        SHA256Object.hashingSHA256HMAC("abc", andText: "123")
+
         
     }
     

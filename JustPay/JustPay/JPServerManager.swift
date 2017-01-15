@@ -9,7 +9,7 @@
 import UIKit
 
 //var baseURL : String = "www.justpay.com"
-var baseURL : String = "http://192.168.0.106:3003"
+var baseURL : String = "http://192.168.0.105:3003"
 var registrationURL : String = "/auth/register"
 var loginURL : String = "/auth/login"
 var checkUserURL : String = "/auth/check"

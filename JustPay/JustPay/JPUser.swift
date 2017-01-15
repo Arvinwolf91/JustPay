@@ -33,4 +33,7 @@ class JPUser: NSObject {
         
         return dictionary
     }
+    
+    
+    
 }

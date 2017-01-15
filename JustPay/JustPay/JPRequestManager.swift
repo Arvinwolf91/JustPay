@@ -16,7 +16,7 @@ class JPRequestManager: NSObject {
     
     class func postServerRequest(urlString:String, paramString:String?, body:Data) -> NSMutableURLRequest {
         
-        var URLString : String = urlString
+        var URLString : String = urlString  // wrong not param it should be in http body forpost request
         if (paramString != nil || !(paramString?.isEmpty)!) {
             URLString = String(format:"%@?%@", urlString, paramString!)
         }
