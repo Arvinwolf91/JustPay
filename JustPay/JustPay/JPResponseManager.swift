@@ -22,7 +22,7 @@ class JPResponseManager: NSObject {
             
         let httpResponse = response as! HTTPURLResponse
         print("HTTP RESPONSE \(httpResponse.description) && CODE :: \(httpResponse.statusCode)")
-        print("ERROR RESPONSE (IF-ANY) :: \(error?.localizedDescription)")
+            print("ERROR RESPONSE (IF-ANY) :: \(String(describing: error?.localizedDescription))")
         
 //        let resultNSString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
 //        print("ERROR RESPONSE DATA (IF-ANY) :: \(resultNSString)")
@@ -41,7 +41,7 @@ class JPResponseManager: NSObject {
             
         }
         completion(jsonResponse as Any, error as NSError?)
-        print("ERROR RESPONSE DATA (IF-ANY) :: \(jsonResponse)")
+            print("ERROR RESPONSE DATA (IF-ANY) :: \(String(describing: jsonResponse))")
         }
         task.resume()
 }

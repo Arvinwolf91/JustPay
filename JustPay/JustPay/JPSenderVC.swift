@@ -34,8 +34,8 @@ class JPSenderVC: UIViewController {
             return;
         }
         
-        let manager = JPServerManager()
-        let amount : NSString = NSString(format : "%@", amountField.text!)
+//        let manager = JPServerManager()
+//        let amount : NSString = NSString(format : "%@", amountField.text!)
 //        manager.makePayment(amount: amount,  completion: { (json, error) in
 //        
 //        
@@ -63,7 +63,7 @@ class JPSenderVC: UIViewController {
         let key = JPUserDefaults.getDeviceSecret()
         print("KEY : \(key)")
         let SHA256Object = JPSHA256HMAC()
-        let token : NSString = SHA256Object.hashingSHA256HMAC(key as String!, andText: text as String!) as NSString  // sendt token to = receiver,
+        let token : NSString = SHA256Object.hashingSHA256HMAC(key as String?, andText: text as String?) as NSString  // send token to = receiver,
         
         // sender usernmae,device id,amount,token JSON form send to reciver app
         

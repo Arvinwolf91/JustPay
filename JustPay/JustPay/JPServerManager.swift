@@ -39,7 +39,7 @@ class JPServerManager: NSObject {
             // TODO
            // let jsonDict : NSDictionary = json as! NSDictionary
             print("RESPONSE :: USER_REGISTRATION :: \(json)")
-            print("ERROR :: USER_REGISTRATION (IF-ANY) :: \(error?.localizedDescription)")
+            print("ERROR :: USER_REGISTRATION (IF-ANY) :: \(String(describing: error?.localizedDescription))")
             completion(json, error)
         })
     }
@@ -66,7 +66,7 @@ class JPServerManager: NSObject {
             // TODO
             let jsonDict : NSDictionary = json as! NSDictionary
             print("RESPONSE :: USER_LOGIN :: \(jsonDict.description)")
-            print("ERROR :: USER_LOGIN (IF-ANY) :: \(error?.localizedDescription)")
+            print("ERROR :: USER_LOGIN (IF-ANY) :: \(String(describing: error?.localizedDescription))")
             
             if(jsonDict.count > 0) {
                 
@@ -133,7 +133,7 @@ class JPServerManager: NSObject {
             // TODO
             let jsonDict : NSDictionary = json as! NSDictionary
             print("RESPONSE :: USER_PAYMENT :: \(jsonDict.description)")
-            print("ERROR :: USER_PAYMENT (IF-ANY) :: \(error?.localizedDescription)")
+            print("ERROR :: USER_PAYMENT (IF-ANY) :: \(String(describing: error?.localizedDescription))")
             
             completion(json, error)
         })
